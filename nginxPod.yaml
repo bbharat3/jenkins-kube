@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: mynginx
+spec:
+  template:
+    metadata:
+      labels:
+        app: mynginx
+    spec:
+      containers:
+      - name: mynginx
+	image: nginx
+#        image: akssecondary.azurecr.io/mynginx:1.0
+ #     imagePullSecrets:
+#      - name: acr-secret-secondary
