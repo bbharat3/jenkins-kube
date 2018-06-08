@@ -4,7 +4,7 @@ kind: Namespace
 metadata:
   name: dc
 ---
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: redis
@@ -41,7 +41,7 @@ spec:
   selector:
     app: redis
 ---
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: rng
@@ -78,7 +78,7 @@ spec:
   selector:
     app: rng
 ---
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: hasher
@@ -116,7 +116,7 @@ spec:
     app: hasher
 ---
 
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: worker
@@ -153,7 +153,7 @@ spec:
   selector:
     app: webui
 ---
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: webui
