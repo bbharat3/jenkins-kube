@@ -1,0 +1,33 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hasher
+  labels:
+    app: hasher
+  namespace: dc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hasher
+    spec:
+      containers:
+        - name: hasher
+          image: 'aksmaster.azurecr.io/dockercoins/hasher:v1'
+      imagePullSecrets:
+        - name: acr-secret-secondary
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hasher
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  selector:
+    app: hasher
